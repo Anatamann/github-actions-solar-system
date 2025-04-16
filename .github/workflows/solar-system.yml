@@ -6,10 +6,6 @@ on:
     branches:
       - main
       - 'feature/*'
-env:
-  MONGO_URI: ${{ var.MONGO_URI }}
-  MONGO_USERNAME: ${{ var.MONGO_USERNAME }}
-  MONGO_PASSWORD: ${{ secrets.MONGOPASSWORD }}
 jobs:
     unit-testing:
         name: Unit Testing
