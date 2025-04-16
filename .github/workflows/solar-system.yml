@@ -74,14 +74,14 @@ jobs:
         id: repo_slug
         with:
           result-encoding: string
-          script: return 'ghcr.io/${{ github.repository }}/solar-system:${{ github.sha }}'.toLowerCase()
+          script: return 'ghcr.io/${{ github.repository }}'.toLowerCase()
 
       - name: Build and push Docker images
         uses: docker/build-push-action@v6.15.0
         with:
          context: .
          push: true
-         tags: ${{ steps.repo_slug.outputs.result }}
+         tags: ${{ steps.repo_slug.outputs.result }}/solar-system:${{ github.sha }}
 
 
 
